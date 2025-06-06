@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS CarDealerships;
+DROP DATABASE IF EXISTS Car_Dealerships;
 
 CREATE DATABASE IF NOT EXISTS Car_Dealerships;
 
-USE Dealerships;
+USE Car_Dealerships;
 
 CREATE TABLE `Dealerships`(
 Dealership_ID INT NOT NULL AUTO_INCREMENT,
@@ -25,7 +25,7 @@ SOLD VARCHAR(5),
 CONSTRAINT `PK_Vehicle` PRIMARY KEY(`VIN`)
 );
 
-CREATE TABLE `Iventory`(
+CREATE TABLE `Inventory`(
 Dealership_ID INT NOT NULL,
 VIN VARCHAR(17) NOT NULL,
 FOREIGN KEY (`Dealership_ID`) REFERENCES `Dealerships`(`Dealership_ID`),
@@ -43,20 +43,20 @@ CONSTRAINT `PK_Contracts` PRIMARY KEY(`Contract_ID`),
 FOREIGN KEY (`Vehicle_Sold_VIN`) REFERENCES `Vehicles`(`VIN`)
 );
 
-INSERT INTO Dealerhips ( Dealership_Name, Adress, Phone)
-VALUES ('City Motors', '123 Main St, New York, NY' , '212-555-1234');
-INSERT INTO Dealerhips (Dealership_ID, Dealership_Name, Adress, Phone)
-VALUES ('Auto Galaxy', '456 Elm St, Brooklyn, NY' , '718-555-5678');
-INSERT INTO Dealerhips (Dealership_ID, Dealership_Name, Adress, Phone)
-VALUES ('Premium Rides', '789 Oak Ave, Queens, NY' , '347-555-9012');
-INSERT INTO Dealerhips (Dealership_ID, Dealership_Name, Adress, Phone)
-VALUES ('Budget Wheels', '321 Pine St, Bronx, NY' , '718-555-1122');
-INSERT INTO Dealerhips (Dealership_ID, Dealership_Name, Adress, Phone)
-VALUES ('Empire Auto', '654 Maple Rd, Staten Island, NY' , '917-555-3344');
+INSERT INTO Dealerships (Dealership_ID, Dealership_Name, Address, Phone)
+VALUES (1,'City Motors', '123 Main St, New York, NY' , '212-555-1234');
+INSERT INTO Dealerships (Dealership_ID, Dealership_Name, Address, Phone)
+VALUES (2,'Auto Galaxy', '456 Elm St, Brooklyn, NY' , '718-555-5678');
+INSERT INTO Dealerships (Dealership_ID, Dealership_Name, Address, Phone)
+VALUES (3,'Premium Rides', '789 Oak Ave, Queens, NY' , '347-555-9012');
+INSERT INTO Dealerships (Dealership_ID, Dealership_Name, Address, Phone)
+VALUES (4,'Budget Wheels', '321 Pine St, Bronx, NY' , '718-555-1122');
+INSERT INTO Dealerships (Dealership_ID, Dealership_Name, Address, Phone)
+VALUES (5,'Empire Auto', '654 Maple Rd, Staten Island, NY' , '917-555-3344');
 
 INSERT INTO Vehicles (VIN, Vehicle_Year, Make, Model, Vehicle_Type, Color, Odometer, Price, Sold)
 VALUES('1HGCM82633A004352', '2022','Honda','Civic','Blue','Sedan', 12000, 18995.00,'Yes');
-INSERT INTO Vehicles (VIN, Vehicl15999.99e_Year, Make, Model, Vehicle_Type, Color, Odometer, Price, Sold)
+INSERT INTO Vehicles (VIN, Vehicle_Year, Make, Model, Vehicle_Type, Color, Odometer, Price, Sold)
 VALUES('1FTFW1EF1EFA12345', '2021','Ford','F-150','Truck','Black', 25000, 28500.00,'No');
 INSERT INTO Vehicles (VIN, Vehicle_Year, Make, Model, Vehicle_Type, Color, Odometer, Price, Sold)
 VALUES('2T1BURHE6GC123456', '2020','Toyota	','Corolla','Sedan','Silver', 31000, 15999.99,'Yes');
@@ -76,12 +76,12 @@ VALUES(1, '3FA6P0H74HR123789');
 INSERT INTO Inventory (Dealership_ID, VIN)
 VALUES(3, '5YJ3E1EA7JF012345');
 	
-INSERT INTO Sales_Contract (Date_Of_Contract, Customer_Name, Vehicle_Sold_VIN, Total_Price, Monthly_Payment)
-Values('2024-11-15', 'Maria Gonzalez', '1HGCM82633A004352', 18995.00, 395.00);
-INSERT INTO Sales_Contract (Date_Of_Contract, Customer_Name, Vehicle_Sold_VIN, Total_Price, Monthly_Payment)
-Values('2024-09-30', 'James Thompson', '2T1BURHE6GC123456', 15999.99, 345.00);
-INSERT INTO Sales_Contract (Date_Of_Contract, Customer_Name, Vehicle_Sold_VIN, Total_Price, Monthly_Payment)
-Values('2025-02-20', 'Aisha Rahman', '5YJ3E1EA7JF012345', 32999.00, 610.00);
+INSERT INTO Sales_Contracts (Contract_ID, Date_Of_Contract, Customer_Name, Vehicle_Sold_VIN, Total_Price, Monthly_Payment)
+Values(1,'2024-11-15', 'Maria Gonzalez', '1HGCM82633A004352', 18995.00, 395.00);
+INSERT INTO Sales_Contracts (Contract_ID, Date_Of_Contract, Customer_Name, Vehicle_Sold_VIN, Total_Price, Monthly_Payment)
+Values(2,'2024-09-30', 'James Thompson', '2T1BURHE6GC123456', 15999.99, 345.00);
+INSERT INTO Sales_Contracts (Contract_ID, Date_Of_Contract, Customer_Name, Vehicle_Sold_VIN, Total_Price, Monthly_Payment)
+Values(3,'2025-02-20', 'Aisha Rahman', '5YJ3E1EA7JF012345', 32999.00, 610.00);
 
 
   
